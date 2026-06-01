@@ -2,14 +2,14 @@ import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
-import { AdminContext } from '../../../admin/src/context/AdminContext'   // ✅ ye line yahan add karo
+
 const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [showMenu, setShowMenu] = useState(false)
   const { token, setToken, userData } = useContext(AppContext)
- const adminContext = useContext(AdminContext) || {}
-const { aToken } = adminContext // ✅ ye line add karo
+  const aToken = localStorage.getItem('aToken')
+
   const logout = () => {
     localStorage.removeItem('token')
     setToken(false)
