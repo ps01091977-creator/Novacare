@@ -89,7 +89,7 @@ const Navbar = () => {
         <div className={`md:hidden fixed right-0 top-0 bottom-0 z-50 w-[80vw] max-w-sm bg-white transition-transform transform duration-300 ${showMenu ? 'translate-x-0' : 'translate-x-full'} shadow-2xl`}>
           <div className='flex items-center justify-between px-5 py-6'>
             <img src={assets.logo} className='w-32' alt="" />
-            <div onClick={() => setShowMenu(false)} className='w-11 h-11 flex items-center justify-center cursor-pointer'>
+            <div onClick={() => setShowMenu(false)} className='w-12 h-12 flex items-center justify-center cursor-pointer active:scale-95'>
               <img src={assets.cross_icon} className='w-7' alt="" />
             </div>
           </div>
@@ -103,27 +103,27 @@ const Navbar = () => {
             </div>
           )}
           <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
-            <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>HOME</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>ALL DOCTORS</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>ABOUT</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>CONTACT</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>HOME</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>ALL DOCTORS</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>ABOUT</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>CONTACT</p></NavLink>
             
             <hr className='w-full border-gray-200 my-2' />
 
             {token && userData ? (
                 <>
-                  <NavLink onClick={() => setShowMenu(false)} to='/my-profile' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>MY PROFILE</p></NavLink>
-                  <NavLink onClick={() => setShowMenu(false)} to='/my-appointments' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>MY APPOINTMENTS</p></NavLink>
-                  <p onClick={() => { logout(); setShowMenu(false); }} className='px-4 py-3 min-h-[44px] rounded-full inline-block text-red-500 hover:bg-red-50 cursor-pointer'>LOGOUT</p>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-profile' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>MY PROFILE</p></NavLink>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-appointments' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>MY APPOINTMENTS</p></NavLink>
+                  <p onClick={() => { logout(); setShowMenu(false); }} className='px-4 py-3 min-h-[48px] flex items-center rounded-full text-red-500 hover:bg-red-50 cursor-pointer active:scale-95'>LOGOUT</p>
                 </>
             ) : (
-                <button onClick={() => { navigate('/login'); setShowMenu(false); }} className='mt-2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[44px]'>
+                <button onClick={() => { navigate('/login'); setShowMenu(false); }} className='mt-2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[48px] active:scale-95'>
                   Create Account / Login
                 </button>
             )}
 
             {location.pathname === '/' && (
-              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-2 border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[44px]'>
+              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-2 border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[48px] active:scale-95'>
                 Admin Panel
               </button>
             )}

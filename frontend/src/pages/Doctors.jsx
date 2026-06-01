@@ -38,7 +38,7 @@ const Doctors = () => {
         </div>
         <div className='w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 gap-y-6'>
           {filterDoc.map((item, index) => (
-            <div onClick={() => { navigate(`/appointment/${item._id}`); scrollTo(0, 0) }} className='border border-gray-100 shadow-sm hover:shadow-xl bg-white rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] transition-all duration-300' key={index}>
+            <div onClick={() => { navigate(`/appointment/${item._id}`); scrollTo(0, 0) }} className='border border-gray-100 shadow-sm hover:shadow-xl bg-white rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-5px] active:scale-95 sm:active:scale-100 transition-all duration-300' key={index}>
               <img className='bg-gray-50/50 w-full h-40 sm:h-64 object-cover object-top border-b border-gray-50' src={item.image} alt="" />
               <div className='p-3 sm:p-4'>
                 <div className={`flex items-center gap-2 text-sm text-center font-medium ${item.available ? 'text-emerald-500' : "text-gray-500"}`}>

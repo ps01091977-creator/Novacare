@@ -162,7 +162,7 @@ const Appointment = () => {
                 <div
                   onClick={() => setSlotIndex(index)}
                   key={index}
-                  className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${slotIndex === index ? 'bg-primary text-white' : 'border border-[#DDDDDD]'
+                  className={`text-center py-6 min-w-[48px] min-h-[48px] flex flex-col items-center justify-center rounded-full cursor-pointer active:scale-95 ${slotIndex === index ? 'bg-primary text-white' : 'border border-[#DDDDDD]'
                     }`}
                 >
                   <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
@@ -179,7 +179,7 @@ const Appointment = () => {
                 <p
                   onClick={() => setSlotTime(item.time)}
                   key={index}
-                  className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${item.time === slotTime
+                  className={`text-sm font-light flex-shrink-0 px-6 min-h-[48px] flex items-center justify-center rounded-full cursor-pointer active:scale-95 ${item.time === slotTime
                       ? 'bg-primary text-white'
                       : 'text-[#949494] border border-[#B4B4B4]'
                     }`}
