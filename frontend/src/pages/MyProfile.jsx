@@ -37,7 +37,7 @@ const MyProfile = () => {
     }
 
     return userData ? (
-        <div className='max-w-lg flex flex-col gap-2 text-sm pt-5'>
+        <div className='max-w-lg w-full flex flex-col gap-2 text-sm pt-5 mx-auto sm:mx-0 px-4 sm:px-0'>
 
             {isEdit ? (
                 <label htmlFor='image'>
@@ -134,11 +134,11 @@ const MyProfile = () => {
 
             <div className='mt-10'>
                 {isEdit ? (
-                    <button onClick={updateUserProfileData} className='border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all'>
+                    <button onClick={updateUserProfileData} className='border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all w-full sm:w-auto'>
                         Save information
                     </button>
                 ) : (
-                    <button onClick={() => setIsEdit(true)} className='border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all'>
+                    <button onClick={() => setIsEdit(true)} className='border border-primary px-8 py-2 rounded-full hover:bg-primary hover:text-white transition-all w-full sm:w-auto'>
                         Edit
                     </button>
                 )}

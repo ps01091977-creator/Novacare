@@ -131,7 +131,7 @@ const Appointment = () => {
           <div>
             <img className='bg-primary w-full sm:max-w-72 rounded-lg' src={docInfo.image} alt="" />
           </div>
-          <div className='flex-1 border border-[#ADADAD] rounded-lg p-8 py-7 bg-white mx-2 sm:mx-0 mt-[-80px] sm:mt-0'>
+          <div className='flex-1 border border-[#ADADAD] rounded-lg p-8 py-7 bg-white mx-2 sm:mx-0 mt-2 sm:mt-0'>
             <p className='flex items-center gap-2 text-3xl font-medium text-gray-700'>
               {docInfo.name} <img src={assets.verified_icon} alt="" />
             </p>
@@ -156,7 +156,7 @@ const Appointment = () => {
           <p>Booking slots</p>
 
           {/* Days Scroll */}
-          <div className='flex gap-3 items-center w-full overflow-x-scroll mt-4'>
+          <div className='flex gap-3 items-center w-full overflow-x-auto scroll-smooth mt-4 pb-2'>
             {docSlots.length > 0 &&
               docSlots.map((item, index) => (
                 <div
@@ -172,7 +172,7 @@ const Appointment = () => {
           </div>
 
           {/* Time Slots Scroll */}
-          <div className='flex items-center gap-3 w-full overflow-x-scroll mt-4'>
+          <div className='flex items-center gap-3 w-full overflow-x-auto scroll-smooth mt-4 pb-2'>
             {docSlots.length > 0 &&
               docSlots[slotIndex] &&
               docSlots[slotIndex].map((item, index) => (
@@ -192,7 +192,7 @@ const Appointment = () => {
           {/* Book Button */}
           <button
             onClick={bookAppointment}
-            className='bg-primary text-white text-sm font-light px-20 py-3 rounded-full my-6'
+            className='bg-primary text-white text-sm font-light px-20 py-3 rounded-full my-6 w-full sm:w-auto active:scale-95 transition-transform'
           >
             Book an appointment
           </button>

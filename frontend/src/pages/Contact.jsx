@@ -8,8 +8,8 @@ const Contact = () => {
       {/* Hero Section */}
       <div className='relative rounded-3xl bg-gradient-to-r from-primary to-primary-dark overflow-hidden my-10 shadow-2xl'>
         <div className='absolute inset-0 bg-white/10 backdrop-blur-sm'></div>
-        <div className='relative z-10 py-16 text-center text-white'>
-          <h1 className='text-4xl md:text-5xl font-bold tracking-wide mb-4'>CONTACT <span className='text-teal-100 font-extrabold'>US</span></h1>
+        <div className='relative z-10 py-10 md:py-16 text-center text-white'>
+          <h1 className='text-3xl md:text-5xl font-bold tracking-wide mb-4'>CONTACT <span className='text-teal-100 font-extrabold'>US</span></h1>
           <p className='text-teal-50 text-sm md:text-base max-w-2xl mx-auto px-4'>We're here to help. Reach out to our dedicated support team or explore amazing career opportunities with us.</p>
         </div>
       </div>
@@ -31,8 +31,8 @@ const Contact = () => {
             </div>
             <p className='text-gray-500 text-base ml-13 leading-relaxed'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
             <div className="ml-13 p-4 bg-gray-50 rounded-xl border border-gray-100 inline-block">
-              <p className='text-gray-600 mb-1'><span className="font-semibold text-gray-800">Tel:</span> (415) 555-0132</p>
-              <p className='text-gray-600'><span className="font-semibold text-gray-800">Email:</span> customersupport@Novacare.in</p>
+              <a href="tel:+14155550132" className='block text-gray-600 mb-1 hover:text-primary transition-colors'><span className="font-semibold text-gray-800">Tel:</span> (415) 555-0132</a>
+              <a href="mailto:customersupport@Novacare.in" className='block text-gray-600 hover:text-primary transition-colors'><span className="font-semibold text-gray-800">Email:</span> customersupport@Novacare.in</a>
             </div>
           </div>
 

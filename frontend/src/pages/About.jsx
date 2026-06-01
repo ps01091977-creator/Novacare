@@ -7,8 +7,8 @@ const About = () => {
       {/* Hero Section */}
       <div className='relative rounded-3xl bg-gradient-to-r from-primary to-primary-dark overflow-hidden my-10 shadow-2xl'>
         <div className='absolute inset-0 bg-white/10 backdrop-blur-sm'></div>
-        <div className='relative z-10 py-16 text-center text-white'>
-          <h1 className='text-4xl md:text-5xl font-bold tracking-wide mb-4'>ABOUT <span className='text-teal-100 font-extrabold'>US</span></h1>
+        <div className='relative z-10 py-10 md:py-16 text-center text-white'>
+          <h1 className='text-3xl md:text-5xl font-bold tracking-wide mb-4'>ABOUT <span className='text-teal-100 font-extrabold'>US</span></h1>
           <p className='text-teal-50 text-sm md:text-base max-w-2xl mx-auto px-4'>Discover our mission to revolutionize healthcare accessibility and bridge the gap between patients and trusted professionals.</p>
         </div>
       </div>
@@ -38,15 +38,15 @@ const About = () => {
       </div>
 
       <div className='flex flex-col md:flex-row gap-6 mb-20'>
-        <div className='flex-1 border border-gray-100 rounded-3xl p-10 sm:p-14 flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark transition-all duration-500 group bg-white'>
+        <div className='flex-1 border border-gray-100 rounded-3xl p-7 sm:p-14 flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark transition-all duration-500 group bg-white'>
           <b className='text-xl text-gray-800 group-hover:text-white transition-colors duration-300'>EFFICIENCY</b>
           <p className='text-gray-500 group-hover:text-teal-50 leading-relaxed transition-colors duration-300'>Streamlined appointment scheduling that fits seamlessly into your busy modern lifestyle.</p>
         </div>
-        <div className='flex-1 border border-gray-100 rounded-3xl p-10 sm:p-14 flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark transition-all duration-500 group bg-white'>
+        <div className='flex-1 border border-gray-100 rounded-3xl p-7 sm:p-14 flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark transition-all duration-500 group bg-white'>
           <b className='text-xl text-gray-800 group-hover:text-white transition-colors duration-300'>CONVENIENCE</b>
           <p className='text-gray-500 group-hover:text-teal-50 leading-relaxed transition-colors duration-300'>Instant access to a massive network of highly trusted healthcare professionals in your exact area.</p>
         </div>
-        <div className='flex-1 border border-gray-100 rounded-3xl p-10 sm:p-14 flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark transition-all duration-500 group bg-white'>
+        <div className='flex-1 border border-gray-100 rounded-3xl p-7 sm:p-14 flex flex-col gap-4 hover:shadow-2xl hover:-translate-y-2 hover:bg-gradient-to-br hover:from-primary hover:to-primary-dark transition-all duration-500 group bg-white'>
           <b className='text-xl text-gray-800 group-hover:text-white transition-colors duration-300'>PERSONALIZATION</b>
           <p className='text-gray-500 group-hover:text-teal-50 leading-relaxed transition-colors duration-300'>Tailored medical recommendations and smart reminders to help you stay firmly on top of your health.</p>
         </div>

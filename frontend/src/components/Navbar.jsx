@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400/30 sticky top-0 z-50 bg-white/80 backdrop-blur-md transition-all'>
-      <div className="w-28 h-28 overflow-hidden">
+      <div className="w-20 h-20 md:w-28 md:h-28 overflow-hidden">
         <img
           onClick={() => navigate('/')}
           src={assets.logo || '/fallback-logo.png'}
@@ -85,33 +85,45 @@ const Navbar = () => {
         <img onClick={() => setShowMenu(true)} className='w-6 md:hidden' src={assets.menu_icon} alt="" />
 
         {/* ---- Mobile Menu ---- */}
-        <div className={`md:hidden ${showMenu ? 'fixed w-full' : 'h-0 w-0'} right-0 top-0 bottom-0 z-20 overflow-hidden bg-white transition-all`}>
+        <div onClick={() => setShowMenu(false)} className={`md:hidden fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${showMenu ? 'opacity-100 visible' : 'opacity-0 invisible'}`}></div>
+        <div className={`md:hidden fixed right-0 top-0 bottom-0 z-50 w-[80vw] max-w-sm bg-white transition-transform transform duration-300 ${showMenu ? 'translate-x-0' : 'translate-x-full'} shadow-2xl`}>
           <div className='flex items-center justify-between px-5 py-6'>
-            <img src={assets.logo} className='w-36' alt="" />
-            <img onClick={() => setShowMenu(false)} src={assets.cross_icon} className='w-7' alt="" />
+            <img src={assets.logo} className='w-32' alt="" />
+            <div onClick={() => setShowMenu(false)} className='w-11 h-11 flex items-center justify-center cursor-pointer'>
+              <img src={assets.cross_icon} className='w-7' alt="" />
+            </div>
           </div>
+          {token && userData && (
+            <div className='flex items-center gap-3 px-5 py-4 bg-gray-50 border-b border-gray-100 mb-2'>
+              <img className='w-12 h-12 rounded-full object-cover' src={userData.image || '/fallback-user.png'} alt="profile" />
+              <div>
+                <p className='font-medium text-gray-800'>{userData.name}</p>
+                <p className='text-xs text-gray-500'>Logged in</p>
+              </div>
+            </div>
+          )}
           <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
-            <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>HOME</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>ALL DOCTORS</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>ABOUT</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>CONTACT</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>HOME</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>ALL DOCTORS</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>ABOUT</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>CONTACT</p></NavLink>
             
             <hr className='w-full border-gray-200 my-2' />
 
             {token && userData ? (
                 <>
-                  <NavLink onClick={() => setShowMenu(false)} to='/my-profile' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>MY PROFILE</p></NavLink>
-                  <NavLink onClick={() => setShowMenu(false)} to='/my-appointments' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>MY APPOINTMENTS</p></NavLink>
-                  <p onClick={() => { logout(); setShowMenu(false); }} className='px-4 py-2 rounded-full inline-block text-red-500 hover:bg-red-50 cursor-pointer'>LOGOUT</p>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-profile' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>MY PROFILE</p></NavLink>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-appointments' ><p className='px-4 py-3 min-h-[44px] rounded-full inline-block hover:bg-gray-100'>MY APPOINTMENTS</p></NavLink>
+                  <p onClick={() => { logout(); setShowMenu(false); }} className='px-4 py-3 min-h-[44px] rounded-full inline-block text-red-500 hover:bg-red-50 cursor-pointer'>LOGOUT</p>
                 </>
             ) : (
-                <button onClick={() => { navigate('/login'); setShowMenu(false); }} className='mt-2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs'>
+                <button onClick={() => { navigate('/login'); setShowMenu(false); }} className='mt-2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[44px]'>
                   Create Account / Login
                 </button>
             )}
 
             {location.pathname === '/' && (
-              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-2 border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs'>
+              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-2 border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[44px]'>
                 Admin Panel
               </button>
             )}

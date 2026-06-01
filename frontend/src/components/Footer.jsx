@@ -3,8 +3,8 @@ import { assets } from '../assets/assets';
 
 const Footer = () => {
   return (
-    <div className="bg-teal-50/50 pt-10 px-6 md:px-20 border-t border-teal-100 rounded-t-3xl mt-24">
-      <div className="grid md:grid-cols-[3fr_1fr_1fr] gap-12 mb-10 text-sm items-start">
+    <div className="bg-teal-50/50 pt-8 md:pt-10 px-6 md:px-20 border-t border-teal-100 rounded-t-3xl mt-16 md:mt-24">
+      <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr_1fr] gap-12 mb-10 text-sm items-start">
         {/* Left Section */}
         <div className="flex items-start gap-4">
   <img className="w-28 mt-1" src={assets.logo} alt="Novacare Logo" />
@@ -31,8 +31,8 @@ const Footer = () => {
         <div>
           <p className="text-lg font-semibold mb-4">GET IN TOUCH</p>
           <ul className="flex flex-col gap-3 text-gray-600">
-            <li className="hover:text-primary transition-colors cursor-pointer">+91-90000-90000</li>
-            <li className="hover:text-primary transition-colors cursor-pointer">customersupport@Novacare.in</li>
+            <li className="hover:text-primary transition-colors cursor-pointer"><a href="tel:+919000090000" className="block">+91-90000-90000</a></li>
+            <li className="hover:text-primary transition-colors cursor-pointer"><a href="mailto:customersupport@Novacare.in" className="block">customersupport@Novacare.in</a></li>
           </ul>
         </div>
       </div>

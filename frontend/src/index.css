@@ -18,3 +18,10 @@
 ::-webkit-scrollbar {
     @apply hidden
 }
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+button, a, input, select, textarea {
+    touch-action: manipulation;
+}
