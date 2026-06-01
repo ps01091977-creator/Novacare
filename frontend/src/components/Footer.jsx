@@ -4,16 +4,15 @@ import { assets } from '../assets/assets';
 const Footer = () => {
   return (
     <div className="bg-teal-50/50 pt-8 md:pt-10 px-6 md:px-20 border-t border-teal-100 rounded-t-3xl mt-16 md:mt-24">
-      <div className="grid grid-cols-1 md:grid-cols-[3fr_1fr_1fr] gap-12 mb-10 text-sm items-start">
+      <div className="flex flex-col md:grid md:grid-cols-[3fr_1fr_1fr] gap-10 mb-10 text-sm items-center md:items-start text-center md:text-left">
         {/* Left Section */}
-        <div className="flex items-start gap-4">
-  <img className="w-28 mt-1" src={assets.logo} alt="Novacare Logo" />
-  <p className="text-gray-600 leading-6 md:max-w-[75%]">
-    <strong>Novacare – Effortless Healthcare Scheduling
-
-</strong> <br />Patients can instantly book appointments with trusted doctors—from routine check-ups to specialist care—in just a few clicks. Our smart reminders keep appointments on track, while real-time updates ensure seamless coordination. Designed for modern healthcare, we save time for both patients and providers.
-  </p>
-</div>
+        <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
+          <img className="w-28 mt-1" src={assets.logo} alt="Novacare Logo" />
+          <p className="text-gray-600 leading-6 md:max-w-[75%] mt-2 md:mt-0">
+            <strong>Novacare – Effortless Healthcare Scheduling</strong> <br />
+            Patients can instantly book appointments with trusted doctors—from routine check-ups to specialist care—in just a few clicks. Our smart reminders keep appointments on track, while real-time updates ensure seamless coordination. Designed for modern healthcare, we save time for both patients and providers.
+          </p>
+        </div>
 
 
         {/* Middle Section */}

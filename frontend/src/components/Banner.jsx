@@ -11,12 +11,12 @@ const Banner = () => {
             <div className='absolute -inset-10 bg-white/10 rotate-12 transform scale-150 blur-2xl pointer-events-none'></div>
 
             {/* ------- Left Side ------- */}
-            <div className='flex-1 py-8 sm:py-10 md:py-16 lg:py-24 lg:pl-5'>
-                <div className='text-lg sm:text-2xl md:text-3xl lg:text-5xl font-semibold text-white'>
+            <div className='flex-1 py-10 sm:py-10 md:py-16 lg:py-24 lg:pl-5 flex flex-col items-center md:items-start text-center md:text-left'>
+                <div className='text-2xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold text-white'>
                     <p>Book Appointment</p>
-                    <p className='mt-4'>With 100+ Trusted Doctors</p>
+                    <p className='mt-2 md:mt-4'>With 100+ Trusted Doctors</p>
                 </div>
-                <button onClick={() => { navigate('/login'); scrollTo(0, 0) }} className='relative z-10 bg-white text-sm sm:text-base text-gray-700 font-bold px-8 py-3 rounded-full mt-6 hover:scale-105 hover:-translate-y-1 hover:shadow-xl hover:text-primary transition-all duration-300'>Create account</button>
+                <button onClick={() => { navigate('/login'); scrollTo(0, 0) }} className='relative z-10 bg-white text-sm sm:text-base text-gray-700 font-bold px-8 py-3 rounded-full mt-6 hover:scale-105 hover:-translate-y-1 hover:shadow-xl hover:text-primary transition-all duration-300 active:scale-95'>Create account</button>
             </div>
 
             {/* ------- Right Side ------- */}
