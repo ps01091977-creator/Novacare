@@ -87,6 +87,24 @@ const AdminContextProvider = (props) => {
         }
 
     }
+
+    // Function to approve appointment using API
+    const approveAppointment = async (appointmentId) => {
+        try {
+            const { data } = await axios.post(backendUrl + '/api/admin/approve-appointment', { appointmentId }, { headers: { aToken } })
+            if (data.success) {
+                toast.success(data.message)
+                getAllAppointments()
+                if (getDashData) getDashData()
+            } else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+            console.log(error)
+        }
+    }
+
     // Getting Admin Dashboard data from Database using API
     const getDashData = async () => {
         try {
@@ -106,13 +124,28 @@ const AdminContextProvider = (props) => {
 
     }
 
+    const removeDoctor = async (docId) => {
+        try {
+            const { data } = await axios.post(backendUrl + '/api/admin/remove-doctor', { docId }, { headers: { aToken } })
+            if (data.success) {
+                toast.success(data.message)
+                getAllDoctors()
+            } else {
+                toast.error(data.message)
+            }
+        } catch (error) {
+            toast.error(error.message)
+            console.log(error)
+        }
+    }
+
     const value = {
         aToken, setAToken,
         backendUrl, doctors,
         getAllDoctors, changeAvailability,
         appointments, setAppointments,
-        getAllAppointments, cancelAppointment,
-         getDashData, dashData
+        getAllAppointments, cancelAppointment, approveAppointment,
+        getDashData, dashData, removeDoctor
     }
 
     return (

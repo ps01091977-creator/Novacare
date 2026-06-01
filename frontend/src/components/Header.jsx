@@ -3,7 +3,8 @@ import { assets } from '../assets/assets'
 
 const Header = () => {
     return (
-        <div className='flex flex-col md:flex-row flex-wrap bg-primary rounded-lg px-6 md:px-10 lg:px-20 '>
+        <div className='relative flex flex-col md:flex-row flex-wrap bg-gradient-to-br from-primary via-primary-dark to-primary rounded-3xl px-6 md:px-10 lg:px-20 shadow-[0_20px_50px_rgba(13,_148,_136,_0.2)] overflow-hidden my-6 border border-teal-500/20'>
+            <div className='absolute inset-0 bg-white/5 backdrop-blur-[2px] pointer-events-none'></div>
 
             {/* --------- Header Left --------- */}
             <div className='md:w-1/2 flex flex-col items-start justify-center gap-4 py-10 m-auto md:py-[10vw] md:mb-[-30px]'>
@@ -14,7 +15,7 @@ const Header = () => {
                     <img className='w-28' src={assets.group_profiles} alt="" />
                     <p>Simply browse through our extensive list of trusted doctors, <br className='hidden sm:block' /> schedule your appointment hassle-free.</p>
                 </div>
-                <a href='#speciality' className='flex items-center gap-2 bg-white px-8 py-3 rounded-full text-[#595959] text-sm m-auto md:m-0 hover:scale-105 transition-all duration-300'>
+                <a href='#speciality' className='relative z-10 flex items-center gap-2 bg-white px-8 py-3 rounded-full text-gray-700 font-bold text-sm m-auto md:m-0 hover:scale-105 hover:-translate-y-1 hover:shadow-xl hover:text-primary transition-all duration-300'>
                     Book appointment <img className='w-3' src={assets.arrow_icon} alt="" />
                 </a>
             </div>

@@ -6,7 +6,7 @@ import { AppContext } from '../../context/AppContext'
 
 const AllAppointments = () => {
 
-  const { aToken, appointments, cancelAppointment, getAllAppointments } = useContext(AdminContext)
+  const { aToken, appointments, cancelAppointment, approveAppointment, getAllAppointments } = useContext(AdminContext)
   const { calculateAge, slotDateFormat, currency } = useContext(AppContext)
 
   useEffect(() => {
@@ -42,9 +42,13 @@ const AllAppointments = () => {
               <img src={item.docData.image} className='w-8 rounded-full bg-gray-200' alt="" /> <p>{item.docData.name}</p>
             </div>
             <p>{currency}{item.amount}</p>
-            {item.cancelled ? <p className='text-red-400 text-xs font-medium'>Cancelled</p>
-              : item.isCompleted ? <p className='text-green-500 text-xs font-medium'>Completed</p> :
-                <img onClick={() => cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.cancel_icon} alt="" />}
+            {item.cancelled ? <p className='text-red-400 text-xs font-medium'>Declined/Cancelled</p>
+              : item.isCompleted ? <p className='text-green-500 text-xs font-medium'>Completed</p> 
+              : item.status === 'Approved' ? <p className='text-green-500 text-xs font-medium'>Approved</p>
+              : <div className='flex gap-2'>
+                  <img onClick={() => approveAppointment(item._id)} className='w-7 cursor-pointer hover:scale-110 transition-all' src={assets.tick_icon} alt="Approve" title="Approve" />
+                  <img onClick={() => cancelAppointment(item._id)} className='w-7 cursor-pointer hover:scale-110 transition-all' src={assets.cancel_icon} alt="Decline" title="Decline" />
+                </div>}
           </div>
         ))}
       </div>

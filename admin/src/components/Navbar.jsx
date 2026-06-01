@@ -19,8 +19,9 @@ const Navbar = () => {
   }
 
   const goToUserPanel = () => {
-    window.location.href = 'https://appointy-roan.vercel.app/'
-  }
+  window.location.href = import.meta.env.VITE_FRONTEND_URL;
+};
+
 
   const isOnDashboard =
     location.pathname === '/admin-dashboard' ||
@@ -57,7 +58,7 @@ const Navbar = () => {
       {/* Logout */}
       <button
         onClick={logout}
-        className='bg-primary text-white text-sm px-10 py-2 rounded-full'
+        className='bg-primary text-white text-sm px-6 sm:px-10 py-2 rounded-full'
       >
         Logout
       </button>

@@ -75,7 +75,7 @@ const addDoctor = async (req, res) => {
   }
 };
 
-// API for appointment cancellation
+// API for appointment cancellation (Decline)
 const appointmentCancel = async (req, res) => {
     try {
 
@@ -83,7 +83,7 @@ const appointmentCancel = async (req, res) => {
         const appointmentData = await appointmentModel.findById(appointmentId)
 
         
-        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true })
+        await appointmentModel.findByIdAndUpdate(appointmentId, { cancelled: true, status: 'Declined' })
 
         // releasing doctor slot 
         const { docId, slotDate, slotTime } = appointmentData
@@ -96,8 +96,20 @@ const appointmentCancel = async (req, res) => {
 
         await doctorModel.findByIdAndUpdate(docId, { slots_booked })
 
-        res.json({ success: true, message: 'Appointment Cancelled' })
+        res.json({ success: true, message: 'Appointment Declined/Cancelled' })
 
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+// API for appointment approval
+const appointmentApprove = async (req, res) => {
+    try {
+        const { appointmentId } = req.body
+        await appointmentModel.findByIdAndUpdate(appointmentId, { status: 'Approved' })
+        res.json({ success: true, message: 'Appointment Approved' })
     } catch (error) {
         console.log(error)
         res.json({ success: false, message: error.message })
@@ -153,5 +165,21 @@ const adminDashboard = async (req, res) => {
     }
 }
 
+// Remove doctor from database
+const removeDoctor = async (req, res) => {
+    try {
+        const { docId } = req.body;
+        const doctor = await doctorModel.findByIdAndDelete(docId);
+        
+        if (!doctor) {
+            return res.json({ success: false, message: "Doctor not found" });
+        }
+        
+        res.json({ success: true, message: "Doctor removed successfully" });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: error.message });
+    }
+}
 
-export {loginAdmin, addDoctor, allDoctors, appointmentsAdmin, appointmentCancel, adminDashboard}
+export { addDoctor, loginAdmin, allDoctors, appointmentsAdmin, appointmentCancel, appointmentApprove, adminDashboard, removeDoctor }

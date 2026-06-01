@@ -2,13 +2,14 @@ import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import { NavLink, useNavigate, useLocation } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
-
+import { AdminContext } from '../../../admin/src/context/AdminContext'   // ✅ ye line yahan add karo
 const Navbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const [showMenu, setShowMenu] = useState(false)
   const { token, setToken, userData } = useContext(AppContext)
-
+ const adminContext = useContext(AdminContext) || {}
+const { aToken } = adminContext // ✅ ye line add karo
   const logout = () => {
     localStorage.removeItem('token')
     setToken(false)
@@ -16,7 +17,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex items-center justify-between text-sm pt-2 pb-0 border-b border-b-gray-400'>
+    <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400/30 sticky top-0 z-50 bg-white/80 backdrop-blur-md transition-all'>
       <div className="w-28 h-28 overflow-hidden">
         <img
           onClick={() => navigate('/')}
@@ -28,30 +29,37 @@ const Navbar = () => {
 
       <ul className='hidden md:flex items-start gap-5 font-medium'>
         <li className='pb-0.5'>
-          <NavLink to='/' className={({ isActive }) => isActive ? 'border-b-2 border-primary' : ''}>HOME</NavLink>
+          <NavLink to='/' className={({ isActive }) => isActive ? 'text-primary font-bold transition-colors' : 'text-gray-600 hover:text-primary transition-colors'}>HOME</NavLink>
         </li>
         <li className='pb-0.5'>
-          <NavLink to='/doctors' className={({ isActive }) => isActive ? 'border-b-2 border-primary' : ''}>ALL DOCTORS</NavLink>
+          <NavLink to='/doctors' className={({ isActive }) => isActive ? 'text-primary font-bold transition-colors' : 'text-gray-600 hover:text-primary transition-colors'}>ALL DOCTORS</NavLink>
         </li>
         <li className='pb-0.5'>
-          <NavLink to='/about' className={({ isActive }) => isActive ? 'border-b-2 border-primary' : ''}>ABOUT</NavLink>
+          <NavLink to='/about' className={({ isActive }) => isActive ? 'text-primary font-bold transition-colors' : 'text-gray-600 hover:text-primary transition-colors'}>ABOUT</NavLink>
         </li>
         <li className='pb-0.5'>
-          <NavLink to='/contact' className={({ isActive }) => isActive ? 'border-b-2 border-primary' : ''}>CONTACT</NavLink>
+          <NavLink to='/contact' className={({ isActive }) => isActive ? 'text-primary font-bold transition-colors' : 'text-gray-600 hover:text-primary transition-colors'}>CONTACT</NavLink>
         </li>
       </ul>
 
       <div className='flex items-center gap-4'>
 
         {/* ✅ Admin Panel Button - show only on home page  */}
-        {location.pathname === '/' && (
-          <button
-            onClick={() => window.open('https://appointy-six.vercel.app', '_blank')}
-            className='bg-primary text-white text-xs px-4 py-2 rounded-full hover:bg-gray-700 hidden md:block'
-          >
-            Admin Panel
-          </button>
-        )}
+ {location.pathname === '/' && (
+    <button
+      onClick={() => {
+        if (aToken) {
+          navigate('/admin-dashboard') // logged-in admin → dashboard
+        } else {
+          navigate('/') // not logged-in → login page
+        }
+      }}
+      className='bg-gradient-to-r from-primary to-primary-dark text-white text-xs px-4 py-2.5 rounded-full hover:shadow-lg hover:scale-105 transition-all hidden md:block font-medium'
+    >
+      Admin Panel
+    </button>
+)}
+
 
         {token && userData ? (
           <div className='flex items-center gap-2 cursor-pointer group relative'>
@@ -68,7 +76,7 @@ const Navbar = () => {
         ) : (
           <button
             onClick={() => navigate('/login')}
-            className='bg-primary text-white px-8 py-3 rounded-full font-light hidden md:block'
+            className='bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-2.5 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all hidden md:block'
           >
             Create Account
           </button>
@@ -83,10 +91,30 @@ const Navbar = () => {
             <img onClick={() => setShowMenu(false)} src={assets.cross_icon} className='w-7' alt="" />
           </div>
           <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
-            <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-2 rounded full inline-block'>HOME</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-2 rounded full inline-block'>ALL DOCTORS</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-2 rounded full inline-block'>ABOUT</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-2 rounded full inline-block'>CONTACT</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>HOME</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>ALL DOCTORS</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>ABOUT</p></NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>CONTACT</p></NavLink>
+            
+            <hr className='w-full border-gray-200 my-2' />
+
+            {token && userData ? (
+                <>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-profile' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>MY PROFILE</p></NavLink>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-appointments' ><p className='px-4 py-2 rounded-full inline-block hover:bg-gray-100'>MY APPOINTMENTS</p></NavLink>
+                  <p onClick={() => { logout(); setShowMenu(false); }} className='px-4 py-2 rounded-full inline-block text-red-500 hover:bg-red-50 cursor-pointer'>LOGOUT</p>
+                </>
+            ) : (
+                <button onClick={() => { navigate('/login'); setShowMenu(false); }} className='mt-2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs'>
+                  Create Account / Login
+                </button>
+            )}
+
+            {location.pathname === '/' && (
+              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-2 border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs'>
+                Admin Panel
+              </button>
+            )}
           </ul>
         </div>
       </div>
