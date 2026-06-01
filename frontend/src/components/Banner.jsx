@@ -7,7 +7,7 @@ const Banner = () => {
     const navigate = useNavigate()
 
     return (
-        <div className='relative flex bg-gradient-to-r from-primary to-teal-400 rounded-3xl px-6 sm:px-10 md:px-14 lg:px-12 my-20 md:mx-10 shadow-2xl overflow-hidden'>
+        <div className='relative flex bg-gradient-to-r from-primary to-teal-400 rounded-[20px] sm:rounded-3xl px-5 sm:px-10 md:px-14 lg:px-12 my-10 sm:my-20 md:mx-10 shadow-2xl overflow-hidden'>
             <div className='absolute -inset-10 bg-white/10 rotate-12 transform scale-150 blur-2xl pointer-events-none'></div>
 
             {/* ------- Left Side ------- */}

@@ -25,3 +25,11 @@ html {
 button, a, input, select, textarea {
     touch-action: manipulation;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

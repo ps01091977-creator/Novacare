@@ -88,7 +88,7 @@ const Navbar = () => {
         <div onClick={() => setShowMenu(false)} className={`md:hidden fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${showMenu ? 'opacity-100 visible' : 'opacity-0 invisible'}`}></div>
         <div className={`md:hidden fixed right-0 top-0 bottom-0 z-50 w-[80vw] max-w-sm bg-white transition-transform transform duration-300 ${showMenu ? 'translate-x-0' : 'translate-x-full'} shadow-2xl`}>
           <div className='flex items-center justify-between px-5 py-6'>
-            <img src={assets.logo} className='w-32' alt="" />
+            <img src={assets.logo} className='w-24' alt="" />
             <div onClick={() => setShowMenu(false)} className='w-12 h-12 flex items-center justify-center cursor-pointer active:scale-95'>
               <img src={assets.cross_icon} className='w-7' alt="" />
             </div>
@@ -102,28 +102,28 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
-            <NavLink onClick={() => setShowMenu(false)} to='/'><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>HOME</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/doctors' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>ALL DOCTORS</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/about' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>ABOUT</p></NavLink>
-            <NavLink onClick={() => setShowMenu(false)} to='/contact' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>CONTACT</p></NavLink>
+          <ul className='flex flex-col gap-2 mt-5 px-5 text-base font-medium'>
+            <NavLink onClick={() => setShowMenu(false)} to='/' className={({isActive}) => `px-6 py-3 min-h-[48px] rounded-xl flex items-center transition-all ${isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-gray-50 text-gray-700'}`}>HOME</NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/doctors' className={({isActive}) => `px-6 py-3 min-h-[48px] rounded-xl flex items-center transition-all ${isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-gray-50 text-gray-700'}`}>ALL DOCTORS</NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/about' className={({isActive}) => `px-6 py-3 min-h-[48px] rounded-xl flex items-center transition-all ${isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-gray-50 text-gray-700'}`}>ABOUT</NavLink>
+            <NavLink onClick={() => setShowMenu(false)} to='/contact' className={({isActive}) => `px-6 py-3 min-h-[48px] rounded-xl flex items-center transition-all ${isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-gray-50 text-gray-700'}`}>CONTACT</NavLink>
             
-            <hr className='w-full border-gray-200 my-2' />
+            <hr className='w-full border-gray-100 my-4' />
 
             {token && userData ? (
                 <>
-                  <NavLink onClick={() => setShowMenu(false)} to='/my-profile' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>MY PROFILE</p></NavLink>
-                  <NavLink onClick={() => setShowMenu(false)} to='/my-appointments' ><p className='px-4 py-3 min-h-[48px] flex items-center rounded-full hover:bg-gray-100 active:scale-95'>MY APPOINTMENTS</p></NavLink>
-                  <p onClick={() => { logout(); setShowMenu(false); }} className='px-4 py-3 min-h-[48px] flex items-center rounded-full text-red-500 hover:bg-red-50 cursor-pointer active:scale-95'>LOGOUT</p>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-profile' className={({isActive}) => `px-6 py-3 min-h-[48px] rounded-xl flex items-center transition-all ${isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-gray-50 text-gray-700'}`}>MY PROFILE</NavLink>
+                  <NavLink onClick={() => setShowMenu(false)} to='/my-appointments' className={({isActive}) => `px-6 py-3 min-h-[48px] rounded-xl flex items-center transition-all ${isActive ? 'bg-primary text-white shadow-md' : 'hover:bg-gray-50 text-gray-700'}`}>MY APPOINTMENTS</NavLink>
+                  <button onClick={() => { logout(); setShowMenu(false); }} className='px-6 py-3 min-h-[48px] flex items-center rounded-xl text-red-500 hover:bg-red-50 active:scale-95 text-left w-full transition-all'>LOGOUT</button>
                 </>
             ) : (
-                <button onClick={() => { navigate('/login'); setShowMenu(false); }} className='mt-2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[48px] active:scale-95'>
+                <button onClick={() => { navigate('/login'); setShowMenu(false); }} className='mt-2 bg-gradient-to-r from-primary to-primary-dark text-white px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full min-h-[48px] active:scale-95'>
                   Create Account / Login
                 </button>
             )}
 
             {location.pathname === '/' && (
-              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-2 border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:shadow-lg transition-all w-full max-w-xs min-h-[48px] active:scale-95'>
+              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-3 border border-primary text-primary px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-all w-full min-h-[48px] active:scale-95'>
                 Admin Panel
               </button>
             )}

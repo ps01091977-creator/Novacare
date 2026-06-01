@@ -3,15 +3,15 @@ import { assets } from '../assets/assets'
 
 const Header = () => {
     return (
-        <div className='relative flex flex-col md:flex-row flex-wrap bg-gradient-to-br from-primary via-primary-dark to-primary rounded-3xl px-6 md:px-10 lg:px-20 shadow-[0_20px_50px_rgba(13,_148,_136,_0.2)] overflow-hidden my-6 border border-teal-500/20'>
+        <div className='relative flex flex-col md:flex-row flex-wrap bg-gradient-to-br from-primary via-primary-dark to-primary rounded-[20px] sm:rounded-3xl px-5 sm:px-10 lg:px-20 shadow-[0_20px_50px_rgba(13,_148,_136,_0.2)] overflow-hidden my-4 sm:my-6 border border-teal-500/20'>
             <div className='absolute inset-0 bg-white/5 backdrop-blur-[2px] pointer-events-none'></div>
 
             {/* --------- Header Left --------- */}
-            <div className='md:w-1/2 flex flex-col items-center md:items-start justify-center gap-6 py-10 m-auto md:py-[10vw] md:mb-[-30px] text-center md:text-left'>
-                <p className='text-3xl md:text-4xl lg:text-5xl text-white font-semibold leading-tight md:leading-tight lg:leading-tight'>
-                    Book Appointment <br className='hidden md:block' />  With Trusted Doctors
+            <div className='md:w-1/2 flex flex-col items-center md:items-start justify-center gap-5 py-10 sm:py-[10vw] m-auto md:mb-[-30px] text-center md:text-left w-full'>
+                <p className='text-2xl sm:text-4xl lg:text-5xl text-white font-semibold leading-tight md:leading-tight lg:leading-tight'>
+                    Book Appointment <br className='hidden sm:block' />  With Trusted Doctors
                 </p>
-                <div className='flex flex-col md:flex-row items-center gap-3 text-white text-sm font-light'>
+                <div className='flex flex-col md:flex-row items-center gap-3 text-white text-sm font-light max-w-[280px] sm:max-w-none m-auto md:m-0'>
                     <img className='w-28' src={assets.group_profiles} alt="" />
                     <p>Simply browse through our extensive list of trusted doctors, <br className='hidden sm:block' /> schedule your appointment hassle-free.</p>
                 </div>
