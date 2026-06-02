@@ -15,21 +15,25 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
-    <div className='mx-4 sm:mx-[10%]'>
+    <div className='w-full'>
       <ToastContainer />
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/doctors' element={<Doctors />} />
-        <Route path='/doctors/:speciality' element={<Doctors />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/my-profile' element={<MyProfile />} />
-        <Route path='/my-appointments' element={<MyAppointment />} />
-        <Route path='/appointment/:docId' element={<Appointment />} />
-
-      </Routes>
+      <div className='px-4 sm:px-[10%] sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-400/30'>
+        <Navbar />
+      </div>
+      <div className='px-4 sm:px-[10%] min-h-[70vh]'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/doctors' element={<Doctors />} />
+          <Route path='/doctors/:speciality' element={<Doctors />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/my-profile' element={<MyProfile />} />
+          <Route path='/my-appointments' element={<MyAppointment />} />
+          <Route path='/appointment/:docId' element={<Appointment />} />
+        </Routes>
+      </div>
+      
       <Footer />
     </div>
   )

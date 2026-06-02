@@ -17,7 +17,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400/30 sticky top-0 z-50 bg-white/80 backdrop-blur-md transition-all'>
+    <div className='flex items-center justify-between text-sm py-4 transition-all'>
       <div className="w-20 h-20 md:w-28 md:h-28 overflow-hidden">
         <img
           onClick={() => navigate('/')}
