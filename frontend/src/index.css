@@ -4,6 +4,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    html {
+        font-size: clamp(14px, 2vw + 8px, 16px);
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    img, video, svg {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Minimum touch targets for mobile */
+    @media (max-width: 768px) {
+        button, a, input, select, textarea {
+            min-height: 44px;
+        }
+        /* Exceptions for links that are just inline text */
+        p a, span a, ul li a {
+            min-height: auto;
+        }
+    }
+}
+
 *{
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
@@ -19,9 +42,6 @@
     @apply hidden
 }
 
-html {
-    -webkit-tap-highlight-color: transparent;
-}
 button, a, input, select, textarea {
     touch-action: manipulation;
 }

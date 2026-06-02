@@ -13,7 +13,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className='my-16 flex flex-col md:flex-row gap-12 items-center'>
+      <div className='my-8 md:my-16 flex flex-col md:flex-row gap-12 items-center'>
         <div className='w-full md:w-1/2 relative group'>
           <div className='absolute -inset-2 bg-gradient-to-r from-teal-400 to-primary-dark rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000'></div>
           <img className='relative w-full rounded-2xl shadow-xl object-cover' src={assets.about_image} alt="" />

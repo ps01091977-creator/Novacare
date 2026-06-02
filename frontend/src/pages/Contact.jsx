@@ -14,7 +14,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className='my-16 flex flex-col md:flex-row items-center gap-12 bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100'>
+      <div className='my-8 md:my-16 flex flex-col md:flex-row items-center gap-12 bg-white rounded-3xl p-6 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100'>
         <div className="w-full md:w-1/2 relative group">
            <div className='absolute -inset-4 bg-gradient-to-r from-teal-300 to-primary-dark rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000'></div>
            <img className='relative w-full rounded-3xl shadow-lg object-cover' src={assets.contact_image} alt="" />

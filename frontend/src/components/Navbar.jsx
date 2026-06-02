@@ -82,7 +82,9 @@ const Navbar = () => {
           </button>
         )}
 
-        <img onClick={() => setShowMenu(true)} className='w-6 md:hidden' src={assets.menu_icon} alt="" />
+        <div onClick={() => setShowMenu(true)} className='md:hidden p-2 -mr-2 flex items-center justify-center cursor-pointer'>
+          <img className='w-6' src={assets.menu_icon} alt="" />
+        </div>
 
         {/* ---- Mobile Menu ---- */}
         <div onClick={() => setShowMenu(false)} className={`md:hidden fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${showMenu ? 'opacity-100 visible' : 'opacity-0 invisible'}`}></div>

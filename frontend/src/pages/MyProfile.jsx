@@ -64,7 +64,7 @@ const MyProfile = () => {
 
             <div>
                 <p className='text-gray-600 underline mt-3'>CONTACT INFORMATION</p>
-                <div className='grid grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-[#363636]'>
+                <div className='grid grid-cols-1 sm:grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-[#363636]'>
                     <p className='font-medium'>Email id:</p>
                     <p className='text-blue-500'>{userData.email}</p>
 
@@ -105,7 +105,7 @@ const MyProfile = () => {
 
             <div>
                 <p className='text-[#797979] underline mt-3'>BASIC INFORMATION</p>
-                <div className='grid grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-gray-600'>
+                <div className='grid grid-cols-1 sm:grid-cols-[1fr_3fr] gap-y-2.5 mt-3 text-gray-600'>
                     <p className='font-medium'>Gender:</p>
                     {isEdit ? (
                         <select className='max-w-20 bg-gray-50'
