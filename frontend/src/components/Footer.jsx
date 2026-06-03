@@ -4,9 +4,9 @@ import { assets } from '../assets/assets';
 const Footer = () => {
   return (
     <div className="bg-teal-50/50 pt-8 md:pt-10 px-6 sm:px-[10%] border-t border-teal-100 mt-16 md:mt-24">
-      <div className="flex flex-col md:grid md:grid-cols-[3fr_1fr_1fr] gap-10 mb-10 text-sm items-center md:items-start text-center md:text-left">
+      <div className="flex flex-col md:grid md:grid-cols-[3fr_1fr_1fr] gap-10 mb-10 text-sm items-start text-left">
         {/* Left Section */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
+        <div className="flex flex-col items-start gap-4">
           <img className="w-28 mt-1" src={assets.logo} alt="Novacare Logo" />
           <p className="text-gray-600 leading-6 md:max-w-[75%] mt-2 md:mt-0">
             <strong>Novacare – Effortless Healthcare Scheduling</strong> <br />
@@ -15,9 +15,11 @@ const Footer = () => {
         </div>
 
 
-        {/* Middle Section */}
-        <div>
-          <p className="text-lg font-semibold mb-4">COMPANY</p>
+        {/* Links Container for Mobile (2 Columns) */}
+        <div className="w-full grid grid-cols-2 md:contents gap-8">
+          {/* Middle Section */}
+          <div>
+            <p className="text-lg font-semibold mb-4">COMPANY</p>
           <ul className="flex flex-col gap-3 text-gray-600">
             <li className="hover:text-primary hover:translate-x-1 transition-all cursor-pointer">Home</li>
             <li className="hover:text-primary hover:translate-x-1 transition-all cursor-pointer">About Us</li>
@@ -34,6 +36,8 @@ const Footer = () => {
             <li className="hover:text-primary transition-colors cursor-pointer"><a href="mailto:customersupport@Novacare.in" className="block">customersupport@Novacare.in</a></li>
           </ul>
         </div>
+      </div>
+
       </div>
 
       {/* Bottom Footer */}

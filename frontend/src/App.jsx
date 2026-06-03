@@ -17,7 +17,7 @@ const App = () => {
   return (
     <div className='w-full'>
       <ToastContainer />
-      <div className='px-4 sm:px-[10%] sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-400/30'>
+      <div className='px-4 sm:px-[10%] sticky top-0 z-50 bg-white border-b border-gray-400/30'>
         <Navbar />
       </div>
       <div className='px-4 sm:px-[10%] min-h-[70vh]'>
