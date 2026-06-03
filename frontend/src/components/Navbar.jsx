@@ -45,20 +45,16 @@ const Navbar = () => {
       <div className='flex items-center gap-4'>
 
         {/* ✅ Admin Panel Button - show only on home page  */}
- {location.pathname === '/' && (
-    <button
-      onClick={() => {
-        if (aToken) {
-          navigate('/admin-dashboard') // logged-in admin → dashboard
-        } else {
-          navigate('/') // not logged-in → login page
-        }
-      }}
-      className='bg-gradient-to-r from-primary to-primary-dark text-white text-xs px-4 py-2.5 rounded-full hover:shadow-lg hover:scale-105 transition-all hidden md:block font-medium'
-    >
-      Admin Panel
-    </button>
-)}
+        {location.pathname === '/' && (
+          <a
+            href={import.meta.env.VITE_ADMIN_URL || 'http://localhost:5174'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className='bg-gradient-to-r from-primary to-primary-dark text-white text-xs px-4 py-2.5 rounded-full hover:shadow-lg hover:scale-105 transition-all hidden md:block font-medium'
+          >
+            Admin Panel
+          </a>
+        )}
 
 
         {token && userData ? (
@@ -125,9 +121,9 @@ const Navbar = () => {
             )}
 
             {location.pathname === '/' && (
-              <button onClick={() => { aToken ? navigate('/admin-dashboard') : navigate('/'); setShowMenu(false); }} className='mt-3 border border-primary text-primary px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-all w-full min-h-[48px] active:scale-95'>
+              <a href={import.meta.env.VITE_ADMIN_URL || 'http://localhost:5174'} target="_blank" rel="noopener noreferrer" className='mt-3 border border-primary text-primary px-8 py-3 rounded-full font-medium hover:bg-gray-50 transition-all w-full min-h-[48px] active:scale-95 text-center flex items-center justify-center'>
                 Admin Panel
-              </button>
+              </a>
             )}
           </ul>
         </div>
